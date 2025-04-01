@@ -107,15 +107,15 @@ while True:
 
 Implement the following methods in your BankAccount class:
 
-1. deposit(self, amount)
+1. `deposit(self, amount)`
 
 - Increases the user’s balance by the specified amount
 
-2. withdraw(self, amount)
+2. `withdraw(self, amount)`
 
 - Decreases the user’s balance by the specified amount if there are enough funds
 
-3. get_balance(self)
+3. `get_balance(self)`
 
 - Retrieves and returns the user’s current balance
 
@@ -135,8 +135,9 @@ You’ll be prompted to enter your user ID and then interact with your account v
 ## 🧪 Testing Tips
 After implementing each method:
 
-- Add a print() statement to confirm the correct value was returned
+- Add a `print()` statement to confirm the correct value was returned
 - Try depositing or withdrawing values and checking the balance afterward
+- Make sure your logic for insufficient funds works in `withdraw()`
 
 ---
 
