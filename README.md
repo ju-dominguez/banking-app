@@ -62,23 +62,10 @@ class BankAccount:
         self.cursor.execute('INSERT OR IGNORE INTO accounts (user_id, balance) VALUES (?, ?)', (self.user_id, 0.0))
         self.conn.commit()
 
-    def deposit(self, amount):
-        self.cursor.execute('UPDATE accounts SET balance = balance + ? WHERE user_id = ?', (amount, self.user_id))
-        self.conn.commit()
-
-    def withdraw(self, amount):
-        self.cursor.execute('SELECT balance FROM accounts WHERE user_id = ?', (self.user_id,))
-        current_balance = self.cursor.fetchone()[0]
-        if amount <= current_balance:
-            self.cursor.execute('UPDATE accounts SET balance = balance - ? WHERE user_id = ?', (amount, self.user_id))
-            self.conn.commit()
-        else:
-            print("Insufficient funds.")
-
-    def get_balance(self):
-        self.cursor.execute('SELECT balance FROM accounts WHERE user_id = ?', (self.user_id,))
-        result = self.cursor.fetchone()
-        return result[0] if result else 0.0
+    # TODO: Add the following functions:
+    # def deposit(self, amount):
+    # def withdraw(self, amount):
+    # def get_balance(self):
 ```
 
 **Create a file called `main.py` with this test interface:**
@@ -99,19 +86,40 @@ while True:
     choice = input("Enter your choice (1–4): ")
 
     if choice == '1':
-        print("Your balance is:", account.get_balance())
+        # Call get_balance() once you've implemented it
+        pass
     elif choice == '2':
-        amount = float(input("Enter deposit amount: "))
-        account.deposit(amount)
+        # Prompt for amount and call deposit()
+        pass
     elif choice == '3':
-        amount = float(input("Enter withdrawal amount: "))
-        account.withdraw(amount)
+        # Prompt for amount and call withdraw()
+        pass
     elif choice == '4':
         print("Goodbye!")
         break
     else:
         print("Invalid choice. Try again.")
 ```
+
+---
+
+✅ Your Task
+
+Implement the following methods in your BankAccount class:
+
+1. deposit(self, amount)
+
+- Increases the user’s balance by the specified amount
+
+2. withdraw(self, amount)
+
+- Decreases the user’s balance by the specified amount if there are enough funds
+
+3. get_balance(self)
+
+- Retrieves and returns the user’s current balance
+
+You can reference the structure of create_account() to see how database queries are written.
 
 ---
 
@@ -124,14 +132,11 @@ You’ll be prompted to enter your user ID and then interact with your account v
 
 ---
 
-## ✅ Testing It Manually
-Try these steps after running `main.py`:
-1. Enter a user ID like `student1`
-2. Deposit `$100`
-3. Check your balance (should now be $100)
-4. Withdraw `$50`
-5. Check your balance again (should now be $50)
-6. Try withdrawing more than your balance to trigger an error message
+## 🧪 Testing Tips
+After implementing each method:
+
+- Add a print() statement to confirm the correct value was returned
+- Try depositing or withdrawing values and checking the balance afterward
 
 ---
 
