@@ -14,13 +14,14 @@ while True:
     choice = input("Enter your choice (1–4): ")
 
     if choice == '1':
-        print("Your balance is:", account.get_balance())
+        # Call get_balance() once you've implemented it
+        pass
     elif choice == '2':
-        amount = float(input("Enter deposit amount: "))
-        account.deposit(amount)
+        # Prompt for amount and call deposit()
+        pass
     elif choice == '3':
-        amount = float(input("Enter withdrawal amount: "))
-        account.withdraw(amount)
+        # Prompt for amount and call withdraw()
+        pass
     elif choice == '4':
         print("Goodbye!")
         break
