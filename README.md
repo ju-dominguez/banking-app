@@ -26,7 +26,7 @@ banking-app/
    ```
 5. Clone the repo:
    ```bash
-   git clone <your-github-repo-link>
+   git clone https://github.com/ju-dominguez/elite_102_project.git
    ```
 6. Open the folder in VS Code:
    - `File > Open Folder > Select your cloned folder`
